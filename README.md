@@ -10,14 +10,14 @@ Remplacer la saisie manuscrite des notes par un outil numérique simple, rapide 
 
 ## Fonctionnalités
 
-- *Authentification* : inscription, connexion par email/mot de passe ou compte Google
-- *Tableau de bord* : statistiques en temps réel (nombre d'étudiants, moyenne générale, taux de réussite, notes saisies), dernières notes saisies, étudiants en difficulté, notes manquantes, distribution des notes
-- *Étudiants* : ajout, modification, suppression, consultation détaillée et recherche par nom ou CNE
-- *Notes* : saisie individuelle ou en lot pour toute une classe, avec coefficient par classe
-- *Classes* : création, modification et suppression de classes avec coefficient et aperçu des statistiques
-- *Absences* : gestion des présences par séance avec suivi des justifications et historique
-- *Profil* : modification du nom, prénom, matière enseignée, photo de profil et mot de passe du compte
-- *Thème clair/sombre* : basculement entre thème clair et sombre
+- **Authentification** : inscription, connexion par email/mot de passe ou compte Google
+- **Tableau de bord** : statistiques en temps réel (nombre d'étudiants, moyenne générale, taux de réussite, notes saisies), dernières notes saisies, étudiants en difficulté, notes manquantes, distribution des notes
+- **Étudiants** : ajout, modification, suppression, consultation détaillée et recherche par nom ou CNE
+- **Notes** : saisie individuelle ou en lot pour toute une classe, avec coefficient par classe
+- **Classes** : création, modification et suppression de classes avec coefficient et aperçu des statistiques
+- **Absences** : gestion des présences par séance avec suivi des justifications et historique
+- **Profil** : modification du nom, prénom, matière enseignée, photo de profil et mot de passe du compte
+- **Thème clair/sombre** : basculement entre thème clair et sombre
 
 
 ## Technologies utilisées
@@ -68,13 +68,13 @@ ProfNotes/
 
 ## Base de données
 
-Le fichier `supabase.sql` décrit toute la structure de la base de données. Il contient :
+Le fichier `Schéma.sql` décrit toute la structure de la base de données. Il contient :
 
-- *5 tables* : `professeurs`, `classes`, `étudiants`, `notes`, `absences`
-- *Protection des données* : chaque professeur accède uniquement à ses propres données (RLS)
-- *11 fonctions SQL* : traitent et retournent les données affichées dans le site
-- *Triggers* : mise à jour automatique de la date de dernière modification
-- *Index* : accélération des requêtes fréquentes (recherche, filtres)
+- **5 tables** : `professeurs`, `classes`, `étudiants`, `notes`, `absences`
+- **Protection des données** : chaque professeur accède uniquement à ses propres données (RLS)
+- **11 fonctions SQL** : traitent et retournent les données affichées dans le site
+- **Triggers** : mise à jour automatique de la date de dernière modification
+- **Index** : accélération des requêtes fréquentes (recherche, filtres)
 
 
 ## Architecture de l'application
