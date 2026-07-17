@@ -1,0 +1,1119 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>ProfNotes</title>
+  <link rel="icon" href="images/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/pages/tableau-de-bord.css">
+  <link rel="stylesheet" href="css/pages/classes.css">
+  <link rel="stylesheet" href="css/pages/profil.css">
+  <link rel="stylesheet" href="css/pages/connexion.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- connexion/inscription -->
+  <div id="page-connexion" class="actif">
+    <div class="conteneur-authentification">
+      <div class="bannière-gauche">
+        <img src="images/img.png" alt="Campus" class="image-bannière">
+      </div>
+      <!-- formulaires -->
+      <div class="contenu-droit">
+        <!-- connexion -->
+        <div id="conteneur-connexion" class="conteneur-formulaire-connexion">
+          <h1>Connexion</h1>
+          <p class="sous-titre">Vous n'avez pas de compte ? <a href="#" class="lien-gras" id="afficher-inscription">Créer un compte</a></p>
+          <form id="formulaire-connexion">
+            <div class="groupe-saisie">
+              <label for="connexion-email">E-mail</label>
+              <input type="text" id="connexion-email" placeholder="Entrez votre email" required>
+            </div>
+            <div class="groupe-saisie">
+              <label for="connexion-mot-de-passe">Mot de passe</label>
+              <div class="conteneur-mot-de-passe">
+                <input type="password" id="connexion-mot-de-passe" placeholder="Entrez votre mot de passe" required>
+                <span class="basculer-mot-de-passe" id="basculer-mot-de-passe-connexion">
+                  <i class="far fa-eye-slash" style="font-size: 20px; color: #a0a0a0;"></i>
+                </span>
+              </div>
+            </div>
+            <div id="erreur-connexion" class="message-erreur"></div>
+            <button type="submit" class="btn-connexion">Se connecter</button>
+            <div class="texte-séparateur">ou continuer avec</div>
+            <button type="button" class="btn-google" id="btn-google-connexion" aria-label="Se connecter avec Google">
+              <span> G </span>
+            </button>
+          </form>
+        </div>
+
+        <!-- inscription -->
+        <div id="conteneur-inscription" class="conteneur-formulaire-connexion" style="display:none">
+          <h1>Créer un compte</h1>
+          <p class="sous-titre">Vous avez déjà un compte ? 
+            <a href="#" class="lien-gras" id="afficher-connexion">Connexion</a>
+          </p>
+          <form id="formulaire-inscription">
+            <div class="ligne-saisie">
+              <div class="groupe-saisie">
+                <label for="inscription-prénom">Prénom</label>
+                <input type="text" id="inscription-prénom" placeholder="Entrez votre prénom" required>
+              </div>
+              <div class="groupe-saisie">
+                <label for="inscription-nom">Nom</label>
+                <input type="text" id="inscription-nom" placeholder="Entrez votre nom" required>
+              </div>
+            </div>
+            <div class="groupe-saisie">
+              <label for="inscription-email">Adresse e-mail</label>
+              <input type="email" id="inscription-email" placeholder="exemple@gmail.com" required>
+            </div>
+            <div class="groupe-saisie">
+              <label for="inscription-mot-de-passe">Mot de passe</label>
+              <div class="conteneur-mot-de-passe">
+                <input type="password" id="inscription-mot-de-passe" placeholder="mot de passe (min 6 caractères)" required>
+                <span class="basculer-mot-de-passe" id="basculer-mot-de-passe-inscription">
+                  <i class="far fa-eye-slash" style="font-size: 20px; color: #a0a0a0;"></i>
+                </span>
+              </div>
+            </div>
+            <div id="erreur-inscription" class="message-erreur"></div>
+            <button type="submit" class="btn-connexion" style="margin-top:20px;">Créer un compte</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- application principale -->
+  <div id="application" class="application caché">
+    <!-- barre latérale -->
+    <nav class="barre-latérale" id="barre-latérale">
+      <div class="en-tête-barre-latérale">
+        <button class="basculer-barre-latérale" id="barre-latérale-bascule" title="Réduire/Étendre le menu">
+          <i class="fas fa-bars" style="font-size: 17px; color: #abdd6b;"></i>
+        </button>
+        <div class="logo-barre-latérale">
+          <i class="fa-solid fa-pen-to-square logo-barre-latérale-icon"></i>
+        </div>
+        <span class="titre-barre-latérale étiquette-barre-latérale">ProfNotes</span>
+      </div>
+
+      <div class="navigation-barre-latérale">
+        <!-- section principale -->
+        <div class="étiquette-section-barre-latérale étiquette-barre-latérale">Principale</div>
+        <a href="#/tableau-de-bord" class="lien-navigation" data-nav="tableau-de-bord" title="Tableau de bord">
+          <i class="fas fa-chart-line" style="font-size: 18px;"></i>
+          <span class="étiquette-barre-latérale">Tableau de bord</span>
+        </a>
+        <a href="#/étudiants" class="lien-navigation" data-nav="étudiants" title="Étudiants">
+          <i class="fas fa-address-book" style="font-size: 18px;"></i>
+          <span class="étiquette-barre-latérale">Étudiants</span>
+        </a>
+        <a href="#/notes" class="lien-navigation" data-nav="notes" title="Notes">
+          <i class="fas fa-file-signature" style="font-size: 18px;"></i>
+          <span class="étiquette-barre-latérale">Notes</span>
+        </a>
+        <a href="#/classes" class="lien-navigation" data-nav="classes" title="Classes">
+          <i class="fa-solid fa-chalkboard-user" style="font-size: 18px;"></i>
+          <span class="étiquette-barre-latérale">Classes</span>
+        </a>
+        <a href="#/absences" class="lien-navigation" data-nav="absences" title="Absences">
+          <i class="fas fa-calendar-check" style="font-size: 18px;"></i> 
+          <span class="étiquette-barre-latérale">Absences</span>
+        </a>
+
+        <!-- section personnel -->
+        <div class="étiquette-section-barre-latérale étiquette-barre-latérale">Personnel</div>
+        <a href="#/profil" class="lien-navigation" data-nav="profil" title="Profil">
+          <i class="fas fa-user-circle" style="font-size: 18px;"></i>
+          <span class="étiquette-barre-latérale">Profil</span>
+        </a>
+      </div>
+
+      <div class="pied-barre-latérale">
+        <div class="utilisateur-barre-latérale">
+          <div class="avatar-barre-latérale">
+            <img src="" alt="" id="barre-latérale-avatar-image">
+            <span id="barre-latérale-avatar-initiales">P</span>
+          </div>
+          <div class="info-utilisateur-barre-latérale étiquette-barre-latérale">
+            <span id="barre-latérale-nom-utilisateur" class="nom-utilisateur-barre-latérale"></span>
+            <span id="barre-latérale-email-utilisateur" class="email-utilisateur-barre-latérale">email</span>
+          </div>
+          <a href="#/déconnexion" id="btn-déconnexion-barre-latérale" class="btn-déconnexion-barre-latérale" title="Déconnexion">
+            <i class="fa-solid fa-sign-out-alt"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <div id="barre-latérale-superposition" class="couverture-barre-latérale"></div>
+
+    <!-- contenu principal -->
+    <div class="contenu-principal">
+      <!-- barre supérieure -->
+      <header class="barre-supérieure">
+        <button id="btn-menu-mobile" class="btn-icône btn-menu-mobile">
+          <i class="fas fa-bars" style="font-size: 17px;"></i>
+        </button>
+        <div class="titre-en-tête">
+          <h2 id="titre-page"></h2>
+        </div>
+        <div class="utilisateur-en-tête">
+          <button id="bascule-thème" class="basculer-thème" title="Changer le thème">
+            <span class="icône-thème-sombre"><i class="far fa-moon" style="font-size: 20px;"></i> Sombre</span>
+            <span class="icône-thème-clair"><i class="fa-solid fa-sun" style="font-size: 16px;"></i> Clair</span>
+          </button>
+          <span id="en-tête-nom-prof" class="nom-en-tête"></span>
+          <div class="image-avatar">
+            <img src="" alt="Avatar" id="image-avatar">
+            <span id="avatar-initiales" class="initiales-avatar">P</span>
+          </div>
+          <a href="#/déconnexion" id="btn-déconnexion-en-tête" class="btn btn-petit btn-contour">Déconnexion</a>
+        </div>
+      </header>
+
+      <!-- conteneur pages -->
+      <main class="conteneur-vue">
+        <!-- page tableau de bord -->
+        <section id="vue-tableau-de-bord" class="vue-page actif">
+          <div class="en-tête-enseignant">
+            <div class="info-enseignant">
+              <h2>Bienvenue, <span id="tableau-de-bord-nom-professeur">Prénom Nom</span> 👋</h2>
+              <span class="email-enseignant" id="tableau-de-bord-email-professeur">email@ecole.ma</span>
+            </div>
+            <div class="étiquette-enseignant">
+              <div class="avatar-enseignant">
+                <img src="" alt="" id="tableau-de-bord-image-professeur">
+                <span id="tableau-de-bord-initiales-professeur">PN</span>
+              </div>
+              <div>
+                <div class="nom-complet-enseignant" id="tableau-de-bord-nom-complet">Prénom Nom</div>
+                <div class="matière-enseignant" id="tableau-de-bord-matière">Module · N classes</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- statistiques -->
+          <div class="grille-statistiques">
+            <!-- carte étudiants -->
+            <div class="carte-statistique">
+              <div class="étiquette-statistique">Mes étudiants</div>
+              <div class="valeur-statistique" id="statistique-étudiants">
+                <span class="nombre-statistique">0</span>
+              </div>
+            </div>
+            <!-- carte moyenne -->
+            <div class="carte-statistique">
+              <div class="étiquette-statistique">Ma moyenne</div>
+              <div class="valeur-statistique" id="statistique-moyenne">
+                <span class="nombre-statistique">0.0</span>
+                <span class="suffixe-statistique">/20</span>
+              </div>
+            </div>
+            <!-- carte réussite -->
+            <div class="carte-statistique">
+              <div class="étiquette-statistique">Taux de réussite</div>
+              <div class="valeur-statistique" id="statistique-réussite">
+                <span class="nombre-statistique">0</span>
+                <span class="suffixe-statistique">%</span>
+              </div>
+            </div>
+            <!-- carte notes -->
+            <div class="carte-statistique">
+              <div class="étiquette-statistique">Notes saisies</div>
+              <div class="valeur-statistique" id="statistique-modules">
+                <span class="nombre-statistique">0</span>
+                <span class="suffixe-statistique" id="statistique-notes-suffixe">/0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- dernières notes -->
+          <div class="panneau-bord">
+            <div class="en-tête-panneau">
+              <div class="section-titre-panneau">
+                <span class="titre-panneau">Dernières notes saisies</span>
+              </div>
+              <div class="actions-panneau">
+                <button class="btn btn-principal btn-petit" id="tableau-de-bord-ajouter-note">+ Saisir une note</button>
+              </div>
+            </div>
+            <div class="corps-panneau">
+              <table class="tableau tableau-bord">
+                <thead>
+                  <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>CNE</th>
+                    <th>Filière</th>
+                    <th>Note</th>
+                    <th>Date de saisie</th>
+                    <th>Statut</th>
+                  </tr>
+                </thead>
+                <tbody id="tableau-de-bord-récent-corps">
+                  <!-- aucune note -->
+                  <tr id="pas-de-note" hidden>
+                    <td colspan="7" class="message-vide"> Aucune note </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- notes manquantes / Étudiants en difficulté -->
+          <div class="ligne-bord">
+            <div class="panneau-bord">
+              <div class="en-tête-panneau">
+                <div class="section-titre-panneau">
+                  <span class="titre-panneau">Notes manquantes</span>
+                </div>
+              </div>
+              <div class="corps-panneau" id="tableau-de-bord-manquant-corps">
+                <p id="pas-de-module" class="message-vide" hidden>Aucune note manquante</p>
+              </div>
+            </div>
+            <div class="panneau-bord">
+              <div class="en-tête-panneau">
+                <div class="section-titre-panneau">
+                  <span class="titre-panneau">Étudiants en difficulté</span>
+                </div>
+                <a href="#/étudiants" class="voir-plus">Voir tout →</a>
+              </div>
+              <div class="corps-panneau" id="tableau-de-bord-difficulté-corps">
+                <p id="pas-d-étudiant-difficulté" class="message-vide" hidden> Aucun étudiant en difficulté </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- distribution / classes -->
+          <div class="ligne-bord">
+            <div class="panneau-bord">
+              <div class="en-tête-panneau">
+                <div class="section-titre-panneau">
+                  <span class="titre-panneau">Distribution des notes</span>
+                </div>
+              </div>
+              <div class="corps-panneau" id="tableau-de-bord-distribution-corps"></div>
+            </div>
+            <div class="panneau-bord">
+              <div class="en-tête-panneau">
+                <div class="section-titre-panneau">
+                  <span class="titre-panneau">Classes</span>
+                </div>
+                <a href="#/classes" class="voir-plus">Voir tout →</a>
+              </div>
+              <div class="corps-panneau" id="tableau-de-bord-classes-corps">
+                <p id="pas-de-module-chart" class="message-vide" hidden> Aucune classe </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- templates tableau de bord -->
+        <template id="template-barre-graphique">
+          <div class="groupe-barre-graphique">
+            <div class="compte-barre-graphique"></div>
+            <div class="barre-graphique"></div>
+            <div class="étiquette-barre-graphique"></div>
+          </div>
+        </template>
+
+        <template id="template-note-récent">
+          <tr>
+            <td class="col-nom"><a href="#"></a></td>
+            <td class="col-prénom"></td>
+            <td class="col-cne"></td>
+            <td class="col-filière"></td>
+            <td><span class="valeur-note"></span><span class="note-maximum">/20</span></td>
+            <td class="col-date"></td>
+            <td><span class="étiquette"></span></td>
+          </tr>
+        </template>
+
+        <template id="template-notes-manquantes">
+          <div class="élément-notes-manquantes">
+            <div class="en-tête-notes-manquantes">
+              <span class="nom-module-manquant"></span>
+              <span class="pourcentage-manquant"></span>
+            </div>
+            <div class="piste-barre-manquant">
+              <div class="remplissage-barre-manquant"></div>
+            </div>
+            <div class="sous-titre-manquant"></div>
+          </div>
+        </template>
+
+        <template id="template-élève-difficulté">
+          <div class="élément-élève-difficulté">
+            <span class="note-élève-difficulté"></span>
+            <div class="info-élève-difficulté">
+              <div class="nom-élève-difficulté"></div>
+              <div class="classe-élève-difficulté"></div>
+            </div>
+            <span class="étiquette"></span>
+          </div>
+        </template>
+
+        <template id="template-liste-classes">
+          <div class="élément-liste-classes">
+            <div>
+              <div class="nom-classe-liste"></div>
+              <div class="info-classe-liste"></div>
+            </div>
+            <span class="étiquette"></span>
+          </div>
+        </template>
+
+        <!-- page étudiants -->
+        <section id="vue-étudiants" class="vue-page">
+          <div id="étudiants-contexte-filtre" class="contexte-filtre" style="display:none">
+            <span class="titre-contexte-filtre">Étudiants — <span id="étudiants-contexte-nom-classe"></span></span>
+            <button class="btn btn-contour btn-petit" id="btn-effacer-filtre-classe">← Retour aux classes</button>
+          </div>
+          <div class="barre-outils-vue">
+            <div class="boîte-recherche">
+              <i class="fa-solid fa-search"></i>
+              <input type="text" id="recherche-étudiants" placeholder="Rechercher un étudiant...">
+            </div>
+            <button class="btn btn-principal" id="btn-ajouter-étudiant">+ Ajouter</button>
+          </div>
+          <!-- carte tableau -->
+          <div class="carte-générale">
+            <div class="corps-carte">
+              <!-- tableau -->
+              <div class="tableau-responsive">
+                <table class="tableau">
+                  <thead><tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>CNE</th>
+                    <th data-sort="filière">Filière <span class="indicateur-tri"></span></th>
+                    <th data-sort="moyenne">Moyenne <span class="indicateur-tri"></span></th>
+                    <th>Actions</th>
+                  </tr></thead>
+                  <tbody id="étudiants-corps"></tbody>
+                </table>
+              </div>
+              <!-- pagination -->
+              <div class="pagination" id="pagination-étudiants"></div>
+            </div>
+          </div>
+
+          <!-- ligne étudiant -->
+          <template id="template-étudiant-row">
+            <tr>
+              <td class="col-nom"></td>
+              <td class="col-prénom"></td>
+              <td class="col-cne"></td>
+              <td class="col-filière"></td>
+              <td class="col-moyenne">
+                <strong></strong><span class="note-maximum">/20</span>
+              </td>
+              <td class="col-actions">
+                <button class="btn-voir"><i class="fa-regular fa-eye"></i></button>
+                <button class="btn-modifier"><i class="fa-regular fa-pen-to-square"></i></button>
+                <button class="btn-supprimer"><i class="fa-regular fa-trash-can"></i></button>
+              </td>
+            </tr>
+          </template>
+
+          <!-- ligne vide -->
+          <template id="template-ligne-vide">
+            <tr>
+              <td colspan="6" class="message-vide"> Aucun étudiant </td>
+            </tr>
+          </template>
+
+          <!-- bouton page -->
+          <template id="template-btn-page">
+            <button class="btn-page"></button>
+          </template>
+
+          <!-- formulaire étudiant -->
+          <template id="template-formulaire-étudiant">
+            <form id="formulaire-étudiant">
+              <div class="ligne-formulaire">
+                <div class="groupe-formulaire">
+                  <label>Nom *</label>
+                  <input type="text" id="f-nom" required>
+                  <div class="erreur-champ" id="nom-erreur"></div>
+                </div>
+                <div class="groupe-formulaire">
+                  <label>Prénom *</label>
+                  <input type="text" id="f-prénom" required>
+                  <div class="erreur-champ" id="prénom-erreur"></div>
+                </div>
+              </div>
+              <div class="ligne-formulaire">
+                <div class="groupe-formulaire">
+                  <label>CNE *</label>
+                  <input type="text" id="f-cne" maxlength="10" required>
+                  <div class="erreur-champ" id="cne-erreur"></div>
+                </div>
+                <div class="groupe-formulaire">
+                  <label>Filière *</label>
+                  <input type="text" id="f-filière" required>
+                  <div class="erreur-champ" id="filière-erreur"></div>
+                </div>
+              </div>
+              </form>
+          </template>
+
+          <!-- confirmation suppression -->
+          <template id="template-confirmer-suppression">
+            <p>Supprimer <strong class="nom-étudiant"></strong> ?</p>
+          </template>
+
+          <template id="template-notes-vide">
+            <table class="tableau">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Note</th>
+                  <th>Coefficient</th>
+                  <th>Date</th>
+                  <th>Commentaire</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="5" class="message-vide">Aucune note</td>
+                </tr>
+              </tbody>
+            </table>
+          </template>
+        </section>
+        <section id="vue-étudiant-détail" class="vue-page">
+          <button class="btn btn-contour btn-petit mb-1" id="btn-retour-étudiants">← Retour</button>
+          <div class="carte-générale mb-1">
+            <div class="en-tête-carte"><h3 id="étudiant-nom-détail"> Informations personnelles </h3></div>
+            <div class="corps-carte" id="étudiant-infos-détail"></div>
+          </div>
+          <div class="carte-générale">
+            <div class="en-tête-carte"><h3> Notes du module </h3></div>
+            <div class="corps-carte" id="étudiant-notes-détail"></div>
+          </div>
+          
+          <!-- infos détail -->
+          <template id="template-infos-détail">
+            <div class="ligne-formulaire">
+              <div> <strong>Nom :</strong> <span class="info-nom"></span> </div>
+              <div> <strong>Prénom :</strong> <span class="info-prénom"></span> </div>
+              <div> <strong>CNE :</strong> <span class="info-cne"></span> </div>
+              <div> <strong>Filière :</strong> <span class="info-filière"></span> </div>
+              <div> <strong>Classe :</strong> <span class="info-classe"></span> </div>
+              <div> <span style="white-space:nowrap"><strong>Moyenne générale :</strong> <span class="info-moyenne" style="font-size:1.3rem; font-weight:700;"></span> /20 (<span class="info-mention"></span>)</span> </div>
+            </div>
+          </template>
+
+          <!-- ligne note fiche -->
+          <template id="template-ligne-note-fiche">
+            <tr>
+              <td class="col-type"></td>
+              <td class="col-note"></td>
+              <td class="col-coeff"></td>
+              <td class="col-date"></td>
+              <td class="col-commentaire"></td>
+            </tr>
+          </template>
+
+          <!-- module notes -->
+          <template id="template-notes-module">
+            <table class="tableau">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Note</th>
+                  <th>Coefficient</th>
+                  <th>Date</th>
+                  <th>Commentaire</th>
+                </tr>
+              </thead>
+              <tbody class="module-corps"></tbody>
+            </table>
+          </template>
+        </section>
+
+        <section id="vue-notes" class="vue-page">
+          <div class="barre-outils-vue">
+            <button class="btn btn-principal" id="btn-ajouter-note">+ Saisir une note</button>
+            <button class="btn btn-contour" id="btn-saisie-lot">Saisie en lot</button>
+          </div>
+          <!-- carte -->
+          <div class="carte-générale">
+            <div class="corps-carte">
+              <!-- tableau -->
+              <div class="tableau-responsive">
+                <table class="tableau">
+                  <thead>
+                    <tr>
+                      <th>Nom</th>
+                      <th>Prénom</th>
+                      <th>CNE</th>
+                      <th>Filière</th>
+                      <th data-sort="semestre"> Semestre <span class="indicateur-tri"></span></th>
+                      <th>Type</th>
+                      <th>Note</th>
+                      <th>Date</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="notes-corps"><tr id="msg-notes-vide" hidden><td colspan="9" class="message-vide">Aucune note</td></tr></tbody>
+                </table>
+              </div>
+              <!-- pagination -->
+              <div class="pagination" id="pagination-notes"></div>
+            </div>
+          </div>
+
+          <!-- formulaire note -->
+          <template id="template-formulaire-note">
+            <form id="formulaire-note">
+              <div class="groupe-formulaire">
+                <label>Filière *</label>
+                <select id="f-note-filière">
+                  <option value="">Sélectionnez</option>
+                </select>
+              </div>
+              <div class="groupe-formulaire">
+                <label>Étudiant *</label>
+                <div class="conteneur-suggestions">
+                  <input type="text" id="f-note-recherche" class="saisie-suggestions" placeholder="Tapez un nom ou prénom..." autocomplete="off">
+                  <select id="f-note-étudiant" style="display:none"></select>
+                   <div id="f-note-suggestions"></div>
+                  <template id="template-suggestion">
+                    <div class="élément-suggestion"></div>
+                  </template>
+                </div>
+              </div>
+              <div class="ligne-formulaire">
+                <div class="groupe-formulaire">
+                  <label>Note /20 *</label>
+                  <input type="number" id="f-note-valeur" min="0" max="20" step="0.5" required>
+                </div>
+                <div class="groupe-formulaire">
+                  <label>Coefficient</label>
+                  <input type="number" id="f-note-coeff" min="0" max="20" step="0.5" readonly>
+                </div>
+              </div>
+              <div class="ligne-formulaire">
+                <div class="groupe-formulaire">
+                  <label>Type</label>
+                  <select id="f-note-type">
+                    <option value="DS">DS</option>
+                    <option value="TP">TP</option>
+                    <option value="Examen">Examen</option>
+                    <option value="Rattrapage">Rattrapage</option>
+                  </select>
+                </div>
+                <div class="groupe-formulaire">
+                  <label>Semestre *</label>
+                  <select id="f-note-semestre">
+                    <option value="1">Semestre 1</option>
+                    <option value="2">Semestre 2</option>
+                    <option value="3">Semestre 3</option>
+                    <option value="4">Semestre 4</option>
+                  </select>
+                </div>
+              </div>
+              <div class="groupe-formulaire">
+                <label>Commentaire</label>
+                <textarea id="f-note-commentaire" rows="2"></textarea>
+              </div>
+            </form>
+          </template>
+
+          <!-- ligne note -->
+          <template id="template-ligne-note">
+            <tr>
+              <td class="col-nom"><a href="#"></a></td>
+              <td class="col-prénom"></td>
+              <td class="col-cne"></td>
+              <td class="col-filière"></td>
+              <td class="col-semestre"></td>
+              <td class="col-type"><span class="étiquette"></span></td>
+              <td class="col-note"><span class="valeur-note"></span><span class="note-maximum">/20</span></td>
+              <td class="col-date"></td>
+              <td class="col-actions">
+                <button class="btn-modifier"><i class="fa-regular fa-pen-to-square"></i></button>
+                <button class="btn-supprimer"><i class="fa-regular fa-trash-can"></i></button>
+              </td>
+            </tr>
+          </template>
+
+          <!-- confirmation suppression note -->
+          <template id="template-confirmer-suppression-note">
+            <p>Supprimer cette note ?</p>
+          </template>
+        </section>
+
+        <!-- saisie en lot -->
+        <section id="vue-saisie-lot" class="vue-page">
+          <button class="btn btn-contour btn-petit mb-1" id="btn-retour-notes">← Retour aux notes</button>
+          <div class="carte-générale">
+            <div class="en-tête-carte"><h3>Saisie en lot</h3></div>
+            <div class="corps-carte">
+              <div class="ligne-formulaire">
+                <div class="groupe-formulaire">
+                  <label>Classe</label>
+                  <select id="lot-classe"></select>
+                  </div>
+                <div class="groupe-formulaire">
+                  <label>Type</label>
+                  <select id="lot-type">
+                    <option>DS</option>
+                    <option>TP</option>
+                    <option>Examen</option>
+                    <option>Rattrapage</option>
+                  </select>
+                </div>
+                <div class="groupe-formulaire">
+                  <label>Coefficient</label>
+                  <input type="number" id="lot-coeff" min="0" max="20" step="0.5" readonly>
+                </div>
+              </div>
+              <!-- tableau -->
+              <div class="tableau-responsive">
+                <table class="tableau">
+                  <thead>
+                    <tr>
+                      <th>NOM</th>
+                      <th>PRÉNOM</th>
+                      <th>CNE</th>
+                      <th>NOTE</th>
+                      <th>COMMENTAIRE</th>
+                    </tr>
+                  </thead>
+                  <tbody id="lot-corps"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="barre-outils-vue">
+            <button class="btn btn-principal" id="btn-lot-enregistrer">Enregistrer toutes les notes</button>
+          </div>
+
+          <!-- ligne lot -->
+          <template id="template-ligne-lot">
+            <tr>
+              <td class="lot-nom"></td>
+              <td class="lot-prénom"></td>
+              <td class="lot-cne"></td>
+              <td><input type="number" class="lot-note" min="0" max="20" step="0.5" style="width:80px"></td>
+              <td><input type="text" class="lot-commentaire" style="width:100%"></td>
+            </tr>
+          </template>
+        </section>
+
+        <!-- classes -->
+        <section id="vue-classes" class="vue-page page">
+          <div class="barre-recherche-ligne">
+            <div class="boîte-recherche">
+              <i class="fa-solid fa-search"></i>
+              <input type="text" id="recherche-classes" placeholder="Rechercher une classe...">
+            </div>
+            <button class="btn-plein" id="btn-ajouter-classe">+ Nouvelle classe</button>
+            <button class="btn-plein" id="btn-supprimer-classes" title="Supprimer des classes" style="margin-left:auto"><i class="fa-regular fa-trash-can"></i></button>
+          </div>
+          <!-- barre sélection -->
+          <div id="barre-sélection-classes" class="barre-sélection caché">
+            <span id="compteur-sélection-classes"></span>
+            <div class="actions-sélection">
+              <button class="btn btn-danger btn-petit" id="btn-confirmer-suppression-classes">Supprimer (<span id="nombre-sélection-classes">0</span>)</button>
+              <button class="btn btn-contour btn-petit" id="btn-annuler-suppression-classes">Annuler</button>
+            </div>
+          </div>
+          <div id="grille-classes" class="grille">
+            <div id="msg-classe-vide" class="message-vide" hidden>Aucune classe</div>
+            <div id="msg-classe-recherche" class="message-vide" hidden>Aucune classe trouvée</div>
+            <div id="msg-classe-erreur" class="message-vide" hidden>Erreur de chargement</div>
+          </div>
+
+          <!-- carte classe -->
+          <template id="template-carte-classe">
+            <div class="carte-générale">
+              <div class="haut-carte">
+                <div>
+                  <div class="nom-classe"></div>
+                  <div class="niveau-classe"></div>
+                </div>
+                <div>
+                  <input type="checkbox" class="case-cocher-classe" style="display:none">
+                  <span class="étiquette"></span>
+                </div>
+              </div>
+              <div class="ligne-statistique">
+                <div>
+                  <div class="étiquette-stat-classe">Moyenne</div>
+                  <div class="valeur-stat-classe classe-moyenne"></div>
+                </div>
+                <div style="text-align:right">
+                  <div class="étiquette-stat-classe">Notes</div>
+                  <div class="valeur-stat-classe classe-notes"></div>
+                </div>
+              </div>
+              <div class="piste-progression">
+                <div class="remplissage-piste progression-classe" style="width:0%"></div>
+              </div>
+              <div class="actions-carte">
+                <button class="btn-secondaire btn-voir-étudiants">Voir les étudiants</button>
+                <button class="btn-petit-plein btn-saisir-note">+ Note</button>
+              </div>
+            </div>
+          </template>
+
+          <!-- formulaire classe -->
+          <template id="template-formulaire-classe">
+            <form id="formulaire-classe">
+              <div class="ligne-formulaire">
+                <div class="groupe-formulaire">
+                  <label>Nom *</label>
+                  <input type="text" id="f-classe-nom" required>
+                </div>
+                <div class="groupe-formulaire">
+                  <label>Filière *</label>
+                  <input type="text" id="f-classe-filière" required>
+                </div>
+                <div class="groupe-formulaire">
+                  <label>Coefficient *</label>
+                  <input type="number" id="f-classe-coefficient" min="0.5" max="20" step="0.5" value="1" required>
+                </div>
+              </div>
+            </form>
+          </template>
+
+          <!-- confirmation suppression classes -->
+          <template id="template-confirmer-suppression-classes">
+            <p>Supprimer <strong class="nb-classes"></strong> classe(s) ?</p>
+          </template>
+        </section>
+
+        <!-- absences -->
+        <section id="vue-absences" class="vue-page">
+          <!-- infos séance -->
+          <div class="carte-générale mb-1">
+            <div class="en-tête-carte"><h3>Informations de la séance</h3></div>
+            <div class="corps-carte">
+              <div class="ligne-formulaire">
+                <div class="groupe-formulaire">
+                  <label>Classe</label>
+                  <select id="abs-classe"></select>
+                </div>
+                <div class="groupe-formulaire">
+                  <label>Date de séance</label>
+                  <input type="datetime-local" id="abs-date">
+                </div>
+                <div class="groupe-formulaire">
+                  <label>Type de séance</label>
+                  <select id="abs-type">
+                    <option value="" disabled selected>Sélectionner un type</option>
+                    <option value="Cours">Cours</option>
+                    <option value="TD">TD</option>
+                    <option value="TP">TP</option>
+                  </select>
+                </div>
+                <div class="groupe-formulaire" style="align-self:flex-end">
+                  <button class="btn btn-principal" id="abs-confirmer">Confirmer</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- liste présence -->
+          <div class="carte-générale" id="abs-saisie-carte" hidden>
+            <div class="en-tête-carte"><h3>Liste de présence</h3></div>
+            <div class="corps-carte">
+              <div class="tableau-responsive">
+                <table class="tableau">
+                  <thead><tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>CNE</th>
+                    <th>Présent</th>
+                    <th>Justifié</th>
+                  </tr></thead>
+                  <tbody id="abs-corps">
+                    <tr id="msg-absences-vide" hidden>
+                      <td colspan="5" class="message-vide">Aucun étudiant</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="barre-outils-vue" id="abs-barre-outils" hidden>
+            <button class="btn btn-principal" id="abs-enregistrer">Enregistrer les absences</button>
+          </div>
+
+          <!-- historique -->
+          <div class="carte-générale">
+            <div class="en-tête-carte"><h3>Historique des séances</h3></div>
+            <div class="corps-carte">
+              <div class="ligne-formulaire">
+                <div class="groupe-formulaire">
+                  <label>Classe</label>
+                  <select id="abs-filtre-classe">
+                    <option value="">Toutes les classes</option>
+                  </select>
+                </div>
+                <div class="groupe-formulaire">
+                  <label>Date</label>
+                  <input type="date" id="abs-filtre-date">
+                </div>
+                <div class="groupe-formulaire">
+                  <label>Type de séance</label>
+                  <select id="abs-filtre-type">
+                    <option value="">Tous les types</option>
+                    <option value="Cours">Cours</option>
+                    <option value="TD">TD</option>
+                    <option value="TP">TP</option>
+                  </select>
+                </div>
+              </div>
+              <!-- tableau historique -->
+              <div class="tableau-responsive">
+                <table class="tableau">
+                  <thead><tr>
+                    <th>Classe</th>
+                    <th>Date</th>
+                    <th>Filière</th>
+                    <th>Type</th>
+                    <th>Étudiants</th>
+                    <th>Actions</th>
+                  </tr></thead>
+                  <tbody id="abs-historique-corps">
+                    <tr id="msg-abs-historique-vide">
+                      <td colspan="6" class="message-vide">Aucune liste aujourd'hui.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- détail séance -->
+          <div class="carte-générale" id="abs-séance-détail-carte" hidden>
+            <div class="en-tête-carte"><h3>Détail de la séance</h3></div>
+            <div class="corps-carte">
+              <div class="tableau-responsive">
+                <table class="tableau">
+                  <thead>
+                    <tr>
+                      <th>Nom</th>
+                      <th>Prénom</th>
+                      <th>CNE</th>
+                      <th>Présent</th>
+                      <th>Justifié</th>
+                    </tr>
+                  </thead>
+                  <tbody id="abs-séance-détail-corps"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ligne présence -->
+          <template id="template-ligne-absence">
+            <tr>
+              <td class="abs-nom"></td>
+              <td class="abs-prénom"></td>
+              <td class="abs-cne"></td>
+              <td>
+                <label class="bascule">
+                  <input type="checkbox" class="abs-présent" checked><span class="curseur-bascule"></span>
+                </label>
+              </td>
+              <td>
+                <label class="bascule">
+                  <input type="checkbox" class="abs-justifié" disabled><span class="curseur-bascule"></span>
+                </label>
+              </td>
+            </tr>
+          </template>
+
+          <!-- ligne historique -->
+          <template id="template-ligne-historique">
+            <tr>
+              <td class="col-classe"></td>
+              <td class="col-date"></td>
+              <td class="col-filière"></td>
+              <td class="col-type"></td>
+              <td class="col-nb"></td>
+              <td class="col-actions">
+                <button class="btn-voir"><i class="fa-regular fa-eye"></i></button>
+                <button class="btn-modifier"><i class="fa-regular fa-pen-to-square"></i></button>
+                <button class="btn-supprimer"><i class="fa-regular fa-trash-can"></i></button>
+              </td>
+            </tr>
+          </template>
+
+          <!-- ligne détail absence -->
+          <template id="template-ligne-détail-absence">
+            <tr>
+              <td class="abs-nom"></td>
+              <td class="abs-prénom"></td>
+              <td class="abs-cne"></td>
+              <td>
+                <label class="bascule">
+                  <input type="checkbox" class="abs-présent" disabled><span class="curseur-bascule"></span>
+                </label>
+              </td>
+              <td>
+                <label class="bascule">
+                  <input type="checkbox" class="abs-justifié" disabled><span class="curseur-bascule"></span>
+                </label>
+              </td>
+            </tr>
+          </template>
+        </section>
+
+        <!-- profil -->
+        <section id="vue-profil" class="vue-page page">
+          <div id="contenu-profil"></div>
+          <template id="template-panneau-avatar">
+            <div class="panneau-profil">
+              <div class="titre-section">Photo de profil</div>
+              <div class="zone-avatar-profil">
+                <div class="grand-avatar-profil" id="avatar-profil-large"></div>
+                <div class="actions-avatar-profil">
+                  <button class="btn-plein" id="btn-changer-photo">Changer la photo</button>
+                  <input type="file" id="saisie-photo" accept=".jpg,.png,.webp" style="display:none">
+                  <div class="note-champ">Taille maximale : 2 MB</div>
+                  <div class="note-champ">Formats acceptés : JPG, PNG, WebP</div>
+                </div>
+              </div>
+            </div>
+          </template>
+
+          <!-- image avatar -->
+          <template id="template-image-avatar">
+            <img src="" alt="avatar" class="image-avatar-profil">
+          </template>
+
+          <!-- initiales avatar -->
+          <template id="template-avatar-initiales">
+            <span class="initiales-avatar-profil"></span>
+          </template>
+
+          <!-- infos personnelles -->
+          <template id="template-panneau-infos">
+            <div class="panneau-profil">
+              <div class="titre-section">Informations personnelles</div>
+              <div class="ligne-formulaire-profil">
+                <div class="champ-profil">
+                  <div class="étiquette-champ">Prénom</div>
+                  <input type="text" class="saisie-champ" id="p-prénom">
+                </div>
+                <div class="champ-profil">
+                  <div class="étiquette-champ">Nom</div>
+                  <input type="text" class="saisie-champ" id="p-nom">
+                </div>
+              </div>
+              <div class="ligne-formulaire-profil">
+                <div class="champ-profil">
+                  <div class="étiquette-champ">Module</div>
+                  <input type="text" class="saisie-champ" id="p-module">
+                </div>
+
+              </div>
+              <div class="actions-profil">
+                <button class="btn-plein" id="btn-enregistrer-profil">Enregistrer</button>
+              </div>
+              <div id="message-enregistrement-profil" class="message-profil"></div>
+            </div>
+          </template>
+
+          <!-- sécurité -->
+          <template id="template-panneau-sécurité">
+            <div class="panneau-profil">
+              <div class="titre-section">Sécurité</div>
+              <div class="ligne-formulaire-profil">
+                <div class="champ-profil">
+                  <div class="étiquette-champ">Email</div>
+                  <input type="email" class="saisie-champ" id="p-email" disabled>
+                  <div class="note-champ">Email non modifiable.</div>
+                </div>
+                <div class="champ-profil">
+                  <div class="étiquette-champ">Mot de passe actuel</div>
+                  <input type="password" class="saisie-champ" id="p-mot-de-passe-current" placeholder="Mot de passe actuel">
+                </div>
+              </div>
+              <div class="ligne-formulaire-profil">
+                <div class="champ-profil">
+                  <div class="étiquette-champ">Nouveau mot de passe</div>
+                  <input type="password" class="saisie-champ" id="p-mot-de-passe-new" placeholder="Au moins 4 caractères">
+                </div>
+                <div class="champ-profil">
+                  <div class="étiquette-champ">Confirmer</div>
+                  <input type="password" class="saisie-champ" id="p-mot-de-passe-confirm" placeholder="Retaper le mot de passe">
+                </div>
+              </div>
+              <div class="actions-profil">
+                <button class="btn-plein" id="btn-enregistrer-mot-de-passe">Enregistrer</button>
+              </div>
+              <div id="message-enregistrement-mot-de-passe" class="message-profil"></div>
+            </div>
+          </template>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- fenêtre -->
+  <div id="fenêtre-superposition" class="couverture-fenêtre caché">
+    <div class="boîte-fenêtre">
+      <div class="en-tête-fenêtre">
+        <h3 id="fenêtre-titre">Titre</h3>
+        <button class="fermeture-fenêtre" id="fenêtre-fermer">&times;</button>
+      </div>
+      <div class="corps-fenêtre" id="fenêtre-corps"></div>
+      <div class="pied-fenêtre" id="fenêtre-pied"></div>
+    </div>
+  </div>
+
+  <!-- bouton fenêtre -->
+  <template id="template-btn-fenêtre">
+    <button class="btn"></button>
+  </template>
+
+  <!-- notifications -->
+  <div id="conteneur-notification" class="conteneur-notification"></div>
+  <template id="template-notification">
+    <div class="notification">
+      <span class="notification-icône"></span>
+      <span class="notification-message"></span>
+    </div>
+  </template>
+
+  <!-- scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="js/config/supabase.js"></script>
+
+  <!-- services -->
+  <script src="js/services/base.service.js"></script>
+  <script src="js/services/classes.service.js"></script>
+  <script src="js/services/étudiants.service.js"></script>
+  <script src="js/services/notes.service.js"></script>
+  <script src="js/services/tableau-de-bord.service.js"></script>
+  <script src="js/services/professeurs.service.js"></script>
+  <script src="js/services/absences.service.js"></script>
+
+  <!-- pages -->
+  <script src="js/pages/tableau-de-bord.js"></script>
+  <script src="js/pages/étudiants.js"></script>
+  <script src="js/pages/notes.js"></script>
+  <script src="js/pages/classes.js"></script>
+  <script src="js/pages/absences.js"></script>
+  <script src="js/pages/profil.js"></script>
+
+  <!-- app -->
+  <script src="js/app.js"></script>
+
+</body>
+</html>

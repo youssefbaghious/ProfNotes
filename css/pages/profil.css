@@ -1,0 +1,107 @@
+#vue-profil .panneau-profil {
+  background: var(--panneau-fond);
+  border-radius: 12px;
+  padding: 18px;
+  border: 0.5px solid var(--panneau-bordure);
+  box-shadow: var(--panneau-ombre);
+  margin-bottom: 14px;
+}
+
+#vue-profil .titre-section {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--texte-principal);
+  margin-bottom: 14px;
+}
+
+#vue-profil .zone-avatar-profil { 
+  display: flex; 
+  align-items: center; 
+  gap: 18px; }
+
+#vue-profil .grand-avatar-profil {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #d4ebb2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+#vue-profil .initiales-avatar-profil { 
+  font-size: 28px; 
+  font-weight: 700; 
+  color: #245814; 
+}
+
+#vue-profil .image-avatar-profil { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+}
+
+#vue-profil .actions-avatar-profil { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 6px; 
+}
+
+#vue-profil .étiquette-champ {
+  font-size: 11px;
+  font-weight: 500;
+  color: #7ab898;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+#vue-profil .saisie-champ {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(60, 130, 60, 0.2);
+  font-size: 13px;
+  color: var(--texte-principal);
+  background: var(--carte-fond);
+}
+#vue-profil .saisie-champ:focus { outline: none; border-color: #abdd6b; }
+
+#vue-profil .saisie-champ:disabled { 
+  background: rgba(60, 130, 60, 0.05); 
+  color: #7ab898; 
+  cursor: not-allowed; 
+}
+
+#vue-profil .note-champ { 
+  font-size: 11px; 
+  color: #7ab898; 
+  margin-top: 4px; 
+}
+
+#vue-profil .ligne-formulaire-profil {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+#vue-profil .champ-profil { display: flex; flex-direction: column; }
+
+#vue-profil .actions-profil { margin-top: 14px; }
+
+#vue-profil .message-profil { margin-top: 10px; font-size: 12px; font-weight: 500; }
+#vue-profil .message-profil-succès { color: #28a745; }
+
+/* Bouton enregistrer */
+#vue-profil .btn-plein {
+  border: none;
+  border-radius: 7px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #abdd6b;
+  color: #1a4430;
+  cursor: pointer;
+}
+#vue-profil .btn-plein:hover { background: #98cc55; }

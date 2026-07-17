@@ -1,0 +1,183 @@
+.barre-recherche-ligne {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.grille { 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 14px; 
+}
+
+#vue-classes .carte-générale {
+  background: var(--classes-carte-fond);
+  border-radius: 14px;
+  padding: 18px;
+  border: 0.5px solid var(--classes-carte-bordure);
+  box-shadow: var(--classes-carte-ombre);
+  margin-bottom: 0;
+}
+
+.haut-carte {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+#vue-classes .nom-classe {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--texte-principal);
+}
+
+#vue-classes .niveau-classe { 
+  font-size: 11px; 
+  color: var(--barre-latérale-texte-muet); 
+  margin-top: 2px; 
+}
+
+#vue-classes .étiquette {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+#vue-classes .ligne-statistique {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+#vue-classes .étiquette-stat-classe {
+  font-size: 10px;
+  color: var(--barre-latérale-texte-muet);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+#vue-classes .valeur-stat-classe { 
+  font-size: 18px; 
+  font-weight: 600; 
+  color: var(--texte-principal); 
+}
+
+#vue-classes .piste-progression {
+  height: 7px;
+  background: var(--classes-piste-fond);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 4px;
+  margin-bottom: 14px;
+}
+
+#vue-classes .remplissage-piste {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--classes-remplissage-fond);
+}
+
+#vue-classes .actions-carte { 
+  display: flex; 
+  gap: 8px; 
+}
+
+#vue-classes .btn-secondaire {
+  flex: 1;
+  background: transparent;
+  border-radius: 7px;
+  padding: 7px 0;
+  font-size: 11px;
+  font-weight: 500;
+  border: 1.5px solid var(--btn-contour-bordure);
+  color: var(--btn-contour-texte);
+  cursor: pointer;
+}
+#vue-classes .btn-secondaire:hover { 
+  background: var(--btn-contour-survol-fond); 
+  color: #fff; 
+}
+
+[data-theme="dark"] #vue-classes .btn-secondaire:hover { color: #0f261b; }
+
+#vue-classes .btn-petit-plein {
+  flex: 1;
+  border: none;
+  border-radius: 7px;
+  padding: 7px 0;
+  font-size: 11px;
+  font-weight: 600;
+  background: #abdd6b;
+  color: #1a4430;
+  cursor: pointer;
+}
+#vue-classes .btn-petit-plein:hover {background: #98cc55; }
+
+#btn-supprimer-classes {
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+#btn-supprimer-classes:hover {
+  background: #8cbf4a;
+}
+
+.case-cocher-classe {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--danger);
+  flex-shrink: 0;
+}
+
+.barre-sélection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  background: var(--danger);
+  color: #fff;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.barre-sélection.caché { display: none; }
+
+.actions-sélection { display: flex; gap: 10px; }
+
+.actions-sélection .btn {
+  font-size: 12px; 
+  padding: 6px 14px; 
+}
+
+.actions-sélection .btn-contour { 
+  background: transparent; 
+  color: #fff; 
+  border: 1.5px solid rgba(255,255,255,0.6); 
+}
+.actions-sélection .btn-contour:hover { 
+  border-color: #fff; 
+  background: rgba(255,255,255,0.1); 
+}
+
+.actions-sélection .btn-danger { 
+  background: #fff; 
+  color: var(--danger); 
+  border: none; 
+}
+.actions-sélection .btn-danger:hover { background: #f8f8f8; }
+
+.message-vide {
+  grid-column: 1 / -1;
+  padding: 3rem;
+  color: var(--barre-latérale-texte-muet);
+  font-size: 13px;
+}

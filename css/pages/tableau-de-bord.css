@@ -1,0 +1,296 @@
+.en-tête-enseignant {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--professeur-en-tête-fond);
+  border-radius: 12px;
+  padding: 20px 24px;
+  border: 0.5px solid var(--panneau-bordure);
+  box-shadow: var(--professeur-en-tête-ombre);
+  margin-bottom: 20px;
+}
+
+.info-enseignant h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--texte-principal);
+  margin: 0;
+}
+.email-enseignant { 
+  font-size: 12px; 
+  color: var(--barre-latérale-texte-muet); 
+}
+
+.étiquette-enseignant { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+}
+
+.avatar-enseignant {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #d4ebb2;
+  color: #245814;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.avatar-enseignant img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+}
+
+.nom-complet-enseignant { 
+  font-size: 13px; 
+  font-weight: 600; 
+  color: var(--texte-principal); 
+}
+
+.matière-enseignant { 
+  font-size: 11px; 
+  color: var(--barre-latérale-texte-muet); 
+}
+
+.grille-statistiques {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 1.5rem;
+}
+
+.carte-statistique {
+  border-radius: 14px;
+  padding: 24px 18px;
+  border: 0.5px solid var(--panneau-bordure);
+  box-shadow: var(--panneau-ombre);
+  text-align: center;
+}
+
+.carte-statistique:nth-child(1) { background: var(--stat-1-bg) }
+.carte-statistique:nth-child(2) { background: var(--stat-2-bg) }
+.carte-statistique:nth-child(3) { background: var(--stat-3-bg) }
+.carte-statistique:nth-child(4) { background: var(--stat-4-bg) }
+
+/* Label au-dessus du nombre */
+.étiquette-statistique {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 12px;
+}
+
+.carte-statistique:nth-child(1) .étiquette-statistique { color: var(--stat-1-label) }
+.carte-statistique:nth-child(2) .étiquette-statistique { color: var(--stat-2-label) }
+.carte-statistique:nth-child(3) .étiquette-statistique { color: var(--stat-3-label) }
+.carte-statistique:nth-child(4) .étiquette-statistique { color: var(--stat-4-label) }
+
+/* Le grand nombre */
+.valeur-statistique {
+  font-size: 34px;
+  font-weight: 600;
+  color: var(--statistique-valeur-couleur);
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+/* Le suffixe (/20, %) à côté du nombre */
+.suffixe-statistique {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--statistique-valeur-couleur);
+}
+
+/* ──────────── Tableau des dernières notes saisies ──────────── */
+
+.tableau-bord thead th {
+  font-size: .8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--barre-latérale-texte-muet);
+  padding: 8px 6px;
+  text-align: left;
+  border-bottom: 0.5px solid var(--panneau-bordure-en-tête);
+}
+
+/* Cellules du tableau */
+.tableau-bord tbody td {
+  font-size: .9rem;
+  color: var(--texte-tableau);
+  padding: 8px 6px;
+  border-top: 0.5px solid var(--panneau-bordure-claire);
+}
+.tableau-bord .étiquette { font-size: .85rem; }
+.tableau-bord tbody td.message-vide { padding: 5rem 5rem; color: #7ab898; }
+
+.valeur-note { 
+  font-size: 14px; 
+  font-weight: 600 
+}
+
+.note-maximum { 
+  font-size: 12px; 
+  font-weight: 400; 
+  color: #407d6e 
+}
+
+/* ──────────── Notes manquantes ──────────── */
+
+.élément-notes-manquantes { 
+  padding: 10px 0; 
+  border-top: 0.5px solid var(--panneau-bordure-claire) 
+}
+.élément-notes-manquantes:last-child, .élément-liste-classes:last-child { padding-bottom: 0 }
+.en-tête-notes-manquantes { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 6px 
+}
+
+.nom-module-manquant {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--texte-principal);
+}
+
+.pourcentage-manquant { font-size: 11px; font-weight: 600 }
+.pourcentage-manquant[data-severity="high"] { color: #e05050 }
+.pourcentage-manquant[data-severity="mid"] { color: #c9a84c }
+.pourcentage-manquant[data-severity="low"] { color: #4caf82 }
+
+.piste-barre-manquant {
+  background: var(--manquant-barre-piste);
+  height: 7px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.remplissage-barre-manquant {
+  height: 100%;
+  border-radius: 4px;
+  transition: width .3s ease;
+}
+
+.sous-titre-manquant {
+  font-size: 10px;
+  color: var(--barre-latérale-texte-muet);
+  margin-top: 4px;
+}
+
+/* ──────────── Élèves en difficulté ──────────── */
+
+.élément-élève-difficulté {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-top: 0.5px solid var(--panneau-bordure-claire);
+}
+
+.note-élève-difficulté {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ff867f;
+  min-width: 28px;
+}
+.info-élève-difficulté { flex: 1; margin-left: 10px }
+
+.nom-élève-difficulté {
+  font-size: 12px;
+  color: var(--texte-principal);
+  font-weight: 500;
+}
+.classe-élève-difficulté { font-size: 10px; color: var(--barre-latérale-texte-muet) }
+
+/* ──────────── Distribution des notes ──────────── */
+
+.graphique-répartition-notes {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: auto;
+  min-height: 110px;
+  padding: 4px 0;
+  flex: 1;
+}
+
+.groupe-barre-graphique {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.compte-barre-graphique {
+  font-size: 10px;
+  color: var(--distribution-compte-couleur);
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.barre-graphique {
+  width: 100%;
+  max-width: 36px;
+  border-radius: 4px 4px 0 0;
+  min-height: 2px;
+}
+
+.étiquette-barre-graphique {
+  font-size: 10px;
+  color: var(--distribution-étiquette-couleur);
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* Permet au panneau Distribution de remplir toute la hauteur disponible */
+.ligne-bord:last-of-type > .panneau-bord:first-of-type {
+  display: flex;
+  flex-direction: column;
+}
+#tableau-de-bord-distribution-corps {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ──────────── Classes ──────────── */
+
+.élément-liste-classes { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  padding: 10px 0; 
+  border-top: 0.5px solid var(--panneau-bordure-claire) 
+}
+
+.nom-classe-liste { 
+  font-size: 12px; 
+  color: var(--texte-principal); 
+  font-weight: 500 
+}
+
+.info-classe-liste { 
+  font-size: 10px; 
+  color: var(--barre-latérale-texte-muet); 
+  margin-top: 4px 
+}
+
+.vue-page.page { 
+  background: var(--bg); 
+  padding: 18px; 
+  border-radius: 12px 
+}
+#vue-classes, #vue-profil { padding: 0 }
